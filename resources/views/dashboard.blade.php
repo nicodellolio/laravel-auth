@@ -20,17 +20,10 @@
                         {{ __('You are logged in!') }}
                     </div>
 
-                    <div class="">
-                        @foreach ($projects as $project)
-                            <ol>
-                                <li>
-
-                                    {{ $project->title }}
-
-                                </li>
-                            </ol>
-                        @endforeach
+                    <div class="card-footer">
+                        <a href="{{route('admin.projects.index')}}">Go to your projects</a>
                     </div>
+
                 </div>
             </div>
         </div>
