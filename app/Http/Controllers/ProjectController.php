@@ -13,6 +13,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
+        $projects = Project::orderByDesc('id')->get();
+
+        return view('dashboard', compact('projects'));
     }
 
     /**

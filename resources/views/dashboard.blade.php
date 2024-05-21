@@ -19,6 +19,12 @@
 
                     {{ __('You are logged in!') }}
                 </div>
+
+                <div class="">
+                    @foreach ($projects as $project)
+                        {{$project->title}}
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
