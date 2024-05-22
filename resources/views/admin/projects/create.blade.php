@@ -18,7 +18,7 @@
 
             <div class="mb-3">
                 <label class="text-light fw-light" for="description" class="form">Description</label>
-                <textarea type="text" class="form-control" rows="4" name="Description" id="Description"
+                <textarea type="text" class="form-control" rows="4" name="description" id="description"
                     aria-describedby="DescriptionHelp"
                     placeholder="ex. The project collects the entire source code for the creation of a web app of a real post office...">{{old('description')}}</textarea>
             </div>
