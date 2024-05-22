@@ -58,7 +58,7 @@
                                 </button>
                             </td>
                         </tr>
-                        
+
                         <!-- Modal Body -->
                         <div class="modal fade" id="modalId-{{ $project->id }}" tabindex="-1" data-bs-backdrop="static"
                             data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId-{{ $project->id }}"
@@ -68,7 +68,7 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="modalTitleId-{{ $project->id }}">
-                                            Are you sure you want to delete this item?
+                                            Are you sure you want to delete the {{$project->title}} item?
                                         </h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                             aria-label="Close"></button>
@@ -98,18 +98,8 @@
 
                 </tbody>
             </table>
-
-            {{-- --------------------- --}}
-
-
         </div>
 
-        <script>
-            const myModal = new bootstrap.Modal(
-                document.getElementById("modalId"),
-                options,
-            );
-        </script>
 
     </div>
 @endsection
