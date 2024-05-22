@@ -45,7 +45,6 @@
 
 
                     <div class="img_box">
-                        @dd($project->preview_image)
                         <img class="card-img-bottom" src="{{ asset('storage/' . $project->preview_image) }}"
                             alt="">
                         <span class="position-absolute bottom-0 start-0 text-dark bg-info rounded px-3 py-1 m-2">
