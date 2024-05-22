@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -32,6 +33,11 @@ class ProjectController extends Controller
     public function store(StoreProjectRequest $request)
     {
         $validated = $request->validated();
+
+        $img_path = Storage::put('uploads', $validated['preview_image']);
+
+        $validated['preview_image'] = $img_path;
+        
 
         Project::create($validated);
         return to_route('admin.projects.index');
