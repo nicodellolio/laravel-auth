@@ -65,6 +65,21 @@
                     value="{{ old('link_to_project_view', $project->link_to_project_view) }}">
             </div>
 
+            <div class="image_box d-flex justify-content-between">
+
+                <div class="mb-3 w-50">
+                    <label for="preview_image" class="form-label text-light fw-light">Update your preview image</label>
+                    <input type="file" class="form-control" name="preview_image" id="preview_image" placeholder=""
+                        aria-describedby="fileHelpId" value="{{ old('preview_image', $project->preview_image) }}"/>
+                </div>
+
+                <div class="img w-50 d-flex flex-column align-items-end">
+                    <img width="90%" class="" src="{{ asset('storage/' . $project->preview_image) }}" alt="">
+                    <small class="text-light fs-6">Current project preview image</small>
+                </div>
+
+            </div>
+
             <div class="mx-auto d-flex justify-content-between text-end mt-3">
                 <button type="submit"
                     class="btn btn-info rounded-3 fw-light text-secondary btn-sm fs-2 px-3 py-1">Submit</button>

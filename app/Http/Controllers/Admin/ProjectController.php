@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
@@ -34,10 +35,12 @@ class ProjectController extends Controller
     {
         $validated = $request->validated();
 
-        $img_path = Storage::put('uploads', $validated['preview_image']);
+        if ($request->has('preview_image')) {
 
-        $validated['preview_image'] = $img_path;
-        
+            $img_path = Storage::put('uploads', $validated['preview_image']);
+            $validated['preview_image'] = $img_path;
+        }
+
 
         Project::create($validated);
         return to_route('admin.projects.index');
@@ -66,8 +69,19 @@ class ProjectController extends Controller
     {
         $validated = $request->validated();
 
-        $project->update($validated);
 
+        if ($request->has('preview_image')) {
+
+            if ($project->preview_image) {
+                Storage::delete($project->preview_image);
+
+                $img_path = Storage::put('uploads', $validated['preview_image']);
+                $validated['preview_image'] = $img_path;
+            }
+        }
+
+        
+        $project->update($validated);
         return to_route('admin.projects.show', compact('project'));
     }
 
