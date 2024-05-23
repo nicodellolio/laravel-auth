@@ -72,15 +72,17 @@ class ProjectController extends Controller
 
         if ($request->has('preview_image')) {
 
+            // dd($request->all());
+
             if ($project->preview_image) {
                 Storage::delete($project->preview_image);
-
-                $img_path = Storage::put('uploads', $validated['preview_image']);
-                $validated['preview_image'] = $img_path;
             }
+
+            $image_path = Storage::put('uploads', $validated['preview_image']);
+            $validated['preview_image'] = $image_path;
         }
 
-        
+
         $project->update($validated);
         return to_route('admin.projects.show', compact('project'));
     }
