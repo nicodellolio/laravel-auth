@@ -70,12 +70,17 @@
                 <div class="mb-3 w-50">
                     <label for="preview_image" class="form-label text-light fw-light">Update your preview image</label>
                     <input type="file" class="form-control" name="preview_image" id="preview_image" placeholder=""
-                        aria-describedby="fileHelpId" value="{{ old('preview_image', $project->preview_image) }}"/>
+                        aria-describedby="fileHelpId" value="{{ old('preview_image', $project->preview_image) }}" />
                 </div>
 
                 <div class="img w-50 d-flex flex-column align-items-end">
-                    <img width="90%" class="" src="{{ asset('storage/' . $project->preview_image) }}" alt="">
+                    <img width="90%" class="" src="{{ asset('storage/' . $project->preview_image) }}"
+                        alt="">
+                @if ($project->preview_image)
                     <small class="text-light fs-6">Current project preview image</small>
+                @else
+                    <small class="text-light fs-6">No current image to show</small>
+                @endif
                 </div>
 
             </div>
